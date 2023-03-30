@@ -1,0 +1,31 @@
+import { Input } from "./Input";
+import React from "react";
+
+export const Button = (props) => {
+    let themClass =
+        " text-white rounded-md bg-yellow-500 border-transparent  hover:bg-yellow-600 ";
+    let radiusClass = "rounded-md";
+
+    if (props.them === "highlight") {
+        radiusClass = " mt-2 rounded-full";
+    }
+    if (props.them === "secondary") {
+        themClass = "text-gray-900 bg-white  border-gray-300 hover:bg-gray-600";
+    }
+
+    return (
+        <div>
+            <button
+                className={
+                    "px-4 py-2 text-sm font-medium  border  shadow-sm disabled:bg-gray-400 " +
+                    themClass +
+                    radiusClass
+                }
+                onClick={props.onClick}
+                disabled={props.disabled}
+            >
+                {props.children}
+            </button>
+        </div>
+    );
+};
